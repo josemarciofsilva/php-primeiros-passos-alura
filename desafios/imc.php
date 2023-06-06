@@ -13,7 +13,7 @@ echo "IMC Acima  de 25 - Insatisfatorio" . PHP_EOL;
 
 $peso = 73;
 $altura = 1.71;
-$imc = ($peso / ($altura) ** 2);
+$imc = ($peso / ($altura ** 2));
 
 echo PHP_EOL;
 echo "Seu IMC é de $imc" . PHP_EOL;
