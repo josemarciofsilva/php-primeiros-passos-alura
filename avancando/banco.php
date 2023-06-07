@@ -32,6 +32,8 @@ $contasCorrentes[12345678911] = sacar($contasCorrentes[12345678911], 500);
 $contasCorrentes[12345678910] = depositar($contasCorrentes[12345678910], 100);
 $contasCorrentes[12345678912] = sacar($contasCorrentes[12345678912], 2000);
 
+unset($contasCorrentes[12345678912]);
+
 titularLetrasMaiusculas($contasCorrentes[12345678910]);
 
 echo PHP_EOL;
