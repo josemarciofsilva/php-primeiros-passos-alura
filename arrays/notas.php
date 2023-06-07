@@ -13,6 +13,6 @@ $notas = [
 	'Josue' => 5
 ];
 
-arsort($notas);
+ksort($notas);
 
 var_dump($notas);
