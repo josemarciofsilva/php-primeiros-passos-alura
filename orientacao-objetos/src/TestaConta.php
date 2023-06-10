@@ -1,8 +1,10 @@
 <?php 
 
 require 'Conta.php';
+require 'Titular.php';
 
-$primeiraConta = new Conta('123.456.789-10', 'Vinicius Dias');
+
+$primeiraConta = new Conta(new Titular('123.456.789-10', 'Vinicius Dias'));
 
 $primeiraConta->depositar(200);
 
@@ -16,7 +18,7 @@ echo PHP_EOL;
 echo "Segunda Conta Criada" . PHP_EOL;
 echo PHP_EOL;
 
-$segundaConta = new Conta('987.654.321-10', 'Patricia');
+$segundaConta = new Conta(new Titular('987.654.321-10', 'Patricia'));
 
 $segundaConta->depositar(1500);
 
