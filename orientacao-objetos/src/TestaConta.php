@@ -2,9 +2,8 @@
 
 require 'Conta.php';
 
-$primeiraConta = new Conta();
-$primeiraConta->setCpfTitular('123.456.789-10');
-$primeiraConta->setNomeTitular('Vinicius Dias');
+$primeiraConta = new Conta('123.456.789-10', 'Vinicius Dias');
+
 $primeiraConta->depositar(200);
 
 echo "Primeira Conta Criada" . PHP_EOL;
@@ -17,9 +16,8 @@ echo PHP_EOL;
 echo "Segunda Conta Criada" . PHP_EOL;
 echo PHP_EOL;
 
-$segundaConta = new Conta();
-$segundaConta->setCpfTitular('987.654.321-10');
-$segundaConta->setNomeTitular('Patricia');
+$segundaConta = new Conta('987.654.321-10', 'Patricia');
+
 $segundaConta->depositar(1500);
 
 echo 'Nome Titular: ' . $segundaConta->getNomeTitular() . PHP_EOL;

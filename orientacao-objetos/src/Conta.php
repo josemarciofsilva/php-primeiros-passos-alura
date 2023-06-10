@@ -5,17 +5,15 @@ class Conta
 	
 	private string $cpfTitular;
 	private string $nomeTitular;
-	private float $saldo = 0;
+	private float $saldo;
 
-	public function setNomeTitular(string $nome): void
+	public function __construct(string $cpfTitular, string $nomeTitular)
 	{
-		$this->nomeTitular = $nome;
+		$this->cpfTitular = $cpfTitular;
+		$this->nomeTitular = $nomeTitular;
+		$this->saldo = 0;
 	}
 
-	public function setCpfTitular( string $cpf): void
-	{
-		$this->cpfTitular = $cpf;
-	}
 
 	public function getNomeTitular(): string
 	{
@@ -32,8 +30,6 @@ class Conta
 		return $this->saldo;
 	}
 
-
-
 	public function sacar(float $valor): void
 	{
 		if ($valor > $this->saldo) {
@@ -46,8 +42,7 @@ class Conta
 			return;
 		}
 
-		$this->saldo -= $valor;	
-				
+		$this->saldo -= $valor;				
 	}
 
 	public function depositar(float $valor): void
@@ -70,8 +65,4 @@ class Conta
 		$this->sacar($valor);
 		$contaDestino->depositar($valor);
 	}
-
-
-
-
 }
