@@ -3,26 +3,55 @@
 require 'Conta.php';
 
 $primeiraConta = new Conta();
-$primeiraConta->saldo = 200;
-$primeiraConta->cpfTitular = '123.456.789-10';
-$primeiraConta->nomeTitular = 'Vinicius Dias';
+$primeiraConta->setCpfTitular('123.456.789-10');
+$primeiraConta->setNomeTitular('Vinicius Dias');
+$primeiraConta->depositar(200);
 
-var_dump($primeiraConta); // Verifique que o objeto já possui os dados necessários de uma conta criada
+echo "Primeira Conta Criada" . PHP_EOL;
+echo PHP_EOL;
+echo 'Nome Titular: ' . $primeiraConta->getNomeTitular() . PHP_EOL;
+echo 'Nome CPF Titular: ' . $primeiraConta->getCpfTitular() . PHP_EOL;
+echo 'Saldo Titular: ' . $primeiraConta->getSaldo() . PHP_EOL;
 
+echo PHP_EOL;
+echo "Segunda Conta Criada" . PHP_EOL;
 echo PHP_EOL;
 
 $segundaConta = new Conta();
-$segundaConta->cpfTitular = '987.654.321-10';
-$segundaConta->nomeTitular = 'Patricia';
-$segundaConta->saldo = 1500;
+$segundaConta->setCpfTitular('987.654.321-10');
+$segundaConta->setNomeTitular('Patricia');
+$segundaConta->depositar(1500);
+
+echo 'Nome Titular: ' . $segundaConta->getNomeTitular() . PHP_EOL;
+echo 'Nome CPF Titular: ' . $segundaConta->getCpfTitular() . PHP_EOL;
+echo 'Saldo Titular: ' . $segundaConta->getSaldo() . PHP_EOL;
+
+echo PHP_EOL;
+echo "Efetuado saque de R$ 200 da Segunda Conta " . PHP_EOL;
+echo PHP_EOL;
 
 $segundaConta->sacar(200);
 
-$primeiraConta->depositar(300);
-
-var_dump($primeiraConta); // Verifique que o objeto não teve seus valores alterados
+echo 'Nome Titular: ' . $segundaConta->getNomeTitular() . PHP_EOL;
+echo 'Nome CPF Titular: ' . $segundaConta->getCpfTitular() . PHP_EOL;
+echo 'Saldo Titular: ' . $segundaConta->getSaldo() . PHP_EOL;
 
 echo PHP_EOL;
+echo "Efetuado transferencia de R$ 300 entre Primeira conta para a Segunda Conta " . PHP_EOL;
+echo PHP_EOL;
 
-var_dump($segundaConta); // Note que este objeto possui os valores da segunda conta criada
+$segundaConta->transferir(300, $primeiraConta);
+
+echo 'Nome Titular: ' . $segundaConta->getNomeTitular() . PHP_EOL;
+echo 'Nome CPF Titular: ' . $segundaConta->getCpfTitular() . PHP_EOL;
+echo 'Saldo Titular: ' . $segundaConta->getSaldo() . PHP_EOL;
+
+echo PHP_EOL;
+echo "Saldo da Primeira Conta " . PHP_EOL;
+echo PHP_EOL;
+
+echo 'Nome Titular: ' . $primeiraConta->getNomeTitular() . PHP_EOL;
+echo 'Nome CPF Titular: ' . $primeiraConta->getCpfTitular() . PHP_EOL;
+echo 'Saldo Titular: ' . $primeiraConta->getSaldo() . PHP_EOL;
+
 
